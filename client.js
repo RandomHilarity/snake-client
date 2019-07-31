@@ -18,8 +18,8 @@ const connect = function() {
   // handle messages incoming from server
   conn.on('data', (data) => {
     console.log('Server says: ', data);
-    return conn;
   });
+  return conn;
 };
 
 module.exports = { connect };
