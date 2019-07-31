@@ -6,8 +6,14 @@ const connect = function() {
     host: "localhost",
     port: 50541
   });
-    // interpret incoming data as text
+  // interpret incoming data as text
   conn.setEncoding("utf8");
+ 
+  // notifies to console when connection is made to server and sends name
+  conn.on('connect', () => {
+    console.log("Connection established, name sent");
+    conn.write("Name: JRW");
+  });
   
   // handle messages incoming from server
   conn.on('data', (data) => {
